@@ -1,8 +1,6 @@
 import LandingPage from "@/assets/landing-page.png";
-import { teamMembers } from "@/lib/data";
 import { createFileRoute } from "@tanstack/react-router";
-import { Instagram, Magicpen, People, Setting } from "iconsax-react";
-import { Linkedin } from "lucide-react";
+import { Magicpen, People, Setting } from "iconsax-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import Problem from "@/assets/problem.png";
