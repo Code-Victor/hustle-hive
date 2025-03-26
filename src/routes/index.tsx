@@ -51,7 +51,7 @@ export function Hero() {
 
 function TeamSection() {
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16 bg-gray-50 h-full">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Meet The Team</h2>
@@ -62,37 +62,6 @@ function TeamSection() {
           </p>
         </div>
         <TeamCarousel />
-        {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {teamMembers.map((member, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-lg overflow-hidden shadow-md"
-            >
-              <div className="aspect-[4/5] relative">
-                <img
-                  loading="lazy"
-                  src={member.image || "/placeholder.svg"}
-                  alt={`${member.name} - ${member.role}`}
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-4 text-center">
-                <h3 className="font-medium text-lg">{member.name}</h3>
-                <p className="text-gray-500 text-sm">{member.role}</p>
-                <div className="flex justify-center mt-3 space-x-2">
-                  <a href="#" className="text-gray-400 hover:text-gray-600">
-                    <span className="sr-only">Instagram</span>
-                    <Instagram size={16} variant="Outline" color="#99a1af" />
-                  </a>
-                  <a href="#" className="text-gray-400 hover:text-gray-600">
-                    <span className="sr-only">LinkedIn</span>
-                    <Linkedin size={16} color="#99a1af" />
-                  </a>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div> */}
       </div>
     </section>
   );
