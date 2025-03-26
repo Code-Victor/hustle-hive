@@ -8,26 +8,23 @@ export const Route = createLazyFileRoute("/gallery")({
 
 function RouteComponent() {
   return (
-    <>
-      <section className="container mx-auto px-4 py-16 text-center">
-        <h1 className="text-5xl font-bold mb-6">Gallery</h1>
-        <div className="max-w-2xl mx-auto">
-          <p className="text-xl text-gray-700">
-            Fun moments together as a team.
-            <br />
-            From working together on projects, to vibes and chill.
-          </p>
-        </div>
-        {/* Gallery Content would go here */}
-        <section className="container mx-auto px-4 py-8 grid grid-cols-2 md:grid-cols-3 gap-4">
-          {gallery.map((g, i) => (
-            <GalleryImage {...g} key={i} />
-          ))}
-          {/* This is where you would add your gallery grid or images */}
-        </section>
-        ;
+    <section className="container mx-auto px-4 py-16 text-center">
+      <h1 className="text-5xl font-bold mb-6">Gallery</h1>
+      <div className="max-w-2xl mx-auto">
+        <p className="text-xl text-gray-700">
+          Fun moments together as a team.
+          <br />
+          From working together on projects, to vibes and chill.
+        </p>
+      </div>
+      {/* Gallery Content would go here */}
+      <section className="container mx-auto px-4 py-8 grid grid-cols-2 md:grid-cols-3 gap-4">
+        {gallery.map((g, i) => (
+          <GalleryImage {...g} key={i} />
+        ))}
+        {/* This is where you would add your gallery grid or images */}
       </section>
-    </>
+    </section>
   );
 }
 
