@@ -18,65 +18,75 @@ function RouteComponent() {
         </p>
       </div>
       {/* Gallery Content would go here */}
-      <section className="container mx-auto px-4 py-8 grid grid-cols-2 md:grid-cols-3 gap-4">
+      <motion.section
+        className="py-8 container mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ staggerChildren: 0.1 }}
+      >
         {gallery.map((g, i) => (
-          <GalleryImage {...g} key={i} />
+          <GalleryImage {...g} index={i} key={i} />
         ))}
         {/* This is where you would add your gallery grid or images */}
-      </section>
+      </motion.section>
     </section>
   );
 }
 
-function GalleryImage(props: (typeof gallery)[number]) {
+function GalleryImage(props: (typeof gallery)[number] & { index: number }) {
   const [hover, setHover] = React.useState(false);
+
   return (
-    <div
-      className="aspect-square w-full h-full overflow-hidden flex flex-col duration-300  ease-in-out"
+    <motion.div
+      className="aspect-square w-full overflow-hidden rounded-2xl"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{
+        duration: 0.5,
+        delay: props.index * 0.1,
+        ease: "easeOut",
+      }}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
       <motion.div
-        layout="preserve-aspect"
-        className="flex-1 rounded-2xl overflow-hidden relative"
+        className="w-full h-full relative rounded-2xl overflow-hidden"
+        whileHover={{ scale: 1.05 }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
       >
         <motion.img
-          layout="preserve-aspect"
-          loading="lazy"
           src={props.image}
           alt={props.alt}
           width={400}
           height={400}
-          className="absolute inste-o w-full h-full object-center object-cover"
+          loading="lazy"
+          className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500"
+          initial={{ scale: 1 }}
+          whileHover={{ scale: 1.1 }}
         />
+
+        <AnimatePresence>
+          {hover && (
+            <motion.div
+              className="absolute inset-0 bg-black/30 flex items-end justify-start p-4"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              <motion.span
+                className="rounded-full px-3 py-1.5 bg-black text-white text-sm font-medium"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 10 }}
+                transition={{ duration: 0.3, delay: 0.1 }}
+              >
+                {props.alt}
+              </motion.span>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </motion.div>
-      <AnimatePresence>
-        {hover && (
-          <motion.div
-            initial={{
-              opacity: 0,
-              y: 10,
-              padding: 0,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-              padding: "8px 0px",
-            }}
-            exit={{
-              opacity: 0,
-              y: 10,
-              height: 0,
-              padding: 0,
-            }}
-            className="flex items-center duration-300 ease-in-out overflow-hidden py-2"
-          >
-            <span className="rounded-full px-2 py-1 bg-black text-white">
-              {props.alt}
-            </span>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
+    </motion.div>
   );
 }

@@ -5,8 +5,8 @@ import { motion } from "motion/react";
 import { useState } from "react";
 import Problem from "@/assets/problem.png";
 import Mission from "@/assets/mission.png";
-import EmblaCarousel from "@/components/carousel";
-import { EmblaOptionsType } from "embla-carousel";
+import { TeamCarousel } from "@/components/carousel";
+
 export const Route = createFileRoute("/")({
   component: RouteComponent,
 });
@@ -48,9 +48,6 @@ export function Hero() {
     </section>
   );
 }
-const OPTIONS: EmblaOptionsType = { loop: true };
-const SLIDE_COUNT = 15;
-const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
 
 function TeamSection() {
   return (
@@ -64,7 +61,7 @@ function TeamSection() {
             agriculture.
           </p>
         </div>
-        <EmblaCarousel slides={SLIDES} options={OPTIONS} />
+        <TeamCarousel />
         {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {teamMembers.map((member, index) => (
             <div

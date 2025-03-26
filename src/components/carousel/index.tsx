@@ -1,24 +1,25 @@
 import "./embla.css";
-import React, { useCallback, useEffect, useRef } from "react";
-import {
-  EmblaCarouselType,
-  EmblaEventType,
-  EmblaOptionsType,
-} from "embla-carousel";
+import { useCallback, useEffect, useRef } from "react";
+import { EmblaCarouselType, EmblaEventType } from "embla-carousel";
+import { WheelGesturesPlugin } from "embla-carousel-wheel-gestures";
+import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
-const TWEEN_FACTOR_BASE = 0.84;
+import { teamMembers } from "@/lib/data";
+import { Instagram } from "iconsax-react";
+import { Linkedin } from "lucide-react";
+
+const TWEEN_FACTOR_BASE = 0.4;
 
 const numberWithinRange = (number: number, min: number, max: number): number =>
   Math.min(Math.max(number, min), max);
 
-type PropType = {
-  slides: number[];
-  options?: EmblaOptionsType;
-};
-
-const EmblaCarousel: React.FC<PropType> = (props) => {
-  const { slides, options } = props;
-  const [emblaRef, emblaApi] = useEmblaCarousel(options);
+const TeamCarousel = () => {
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    {
+      loop: true,
+    },
+    [WheelGesturesPlugin(), Autoplay()]
+  );
   const tweenFactor = useRef(0);
 
   const setTweenFactor = useCallback((emblaApi: EmblaCarouselType) => {
@@ -78,22 +79,49 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
   }, [emblaApi, tweenOpacity]);
 
   return (
-    <div className="embla">
-      <div className="embla__viewport" ref={emblaRef}>
-        <div className="embla__container">
-          {slides.map((index) => (
-            <div className="embla__slide" key={index}>
-              <img
-                className="embla__slide__img"
-                src={`https://picsum.photos/600/350?v=${index}`}
-                alt="Your alt text"
-              />
-            </div>
-          ))}
+    <div className="relative max-w-[54rem] mx-auto">
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-8 md:w-12 bg-gradient-to-r from-[#f9fafb] to-transparent z-10"></div>
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-8 md:w-12 bg-gradient-to-l from-[#f9fafb] to-transparent z-10"></div>
+      <div className="embla">
+        <div className="embla__viewport" ref={emblaRef}>
+          <div className="embla__container">
+            {[...teamMembers, ...teamMembers].map((member, index) => (
+              <div key={index} className="embla__slide">
+                <div className="bg-white rounded-lg overflow-hidden shadow-md">
+                  <img
+                    loading="lazy"
+                    src={member.image || "/placeholder.svg"}
+                    alt={`${member.name} - ${member.role}`}
+                    className="object-cover w-full"
+                    width={200}
+                    height={200}
+                  />
+                  <div className="p-4 text-center">
+                    <h3 className="font-medium text-lg">{member.name}</h3>
+                    <p className="text-gray-500 text-sm">{member.role}</p>
+                    <div className="flex justify-center mt-3 space-x-2">
+                      <a href="#" className="text-gray-400 hover:text-gray-600">
+                        <span className="sr-only">Instagram</span>
+                        <Instagram
+                          size={16}
+                          variant="Outline"
+                          color="#99a1af"
+                        />
+                      </a>
+                      <a href="#" className="text-gray-400 hover:text-gray-600">
+                        <span className="sr-only">LinkedIn</span>
+                        <Linkedin size={16} color="#99a1af" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default EmblaCarousel;
+export { TeamCarousel };

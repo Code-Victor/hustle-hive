@@ -28,75 +28,75 @@ import Victor from "@/assets/team/victor.png";
 export const gallery = [
   {
     image: GalleryImage1,
-    alt: "Description",
+    alt: "Mr Integrity",
   },
   {
     image: GalleryImage2,
-    alt: "Description",
+    alt: "Mamatou",
   },
   {
     image: GalleryImage3,
-    alt: "Description",
+    alt: "Sir Polkadot",
   },
   {
     image: GalleryImage4,
-    alt: "Description",
+    alt: "Gracie",
   },
   {
     image: GalleryImage5,
-    alt: "Description",
+    alt: "Menace",
   },
   {
     image: GalleryImage6,
-    alt: "Description",
+    alt: "Hakuna Matata",
   },
   {
     image: GalleryImage7,
-    alt: "Description",
+    alt: "Hustle Hive at the Kigali Convention Centre",
   },
   {
     image: GalleryImage8,
-    alt: "Description",
+    alt: "Riding at EcoPark",
   },
   {
     image: GalleryImage9,
-    alt: "Description",
+    alt: "Sir Polkadot",
   },
   {
     image: GalleryImage10,
-    alt: "Description",
+    alt: "Goofy Stuff",
   },
   {
     image: GalleryImage11,
-    alt: "Description",
+    alt: "WaterGun Fight",
   },
   {
     image: GalleryImage12,
-    alt: "Description",
+    alt: "At a Bookstore, Kigali Heights",
   },
   {
     image: GalleryImage13,
-    alt: "Description",
+    alt: "Same Bookstore",
   },
   {
     image: GalleryImage14,
-    alt: "Description",
+    alt: "Twinning",
   },
   {
     image: GalleryImage15,
-    alt: "Description",
+    alt: "Sir Polkadot forced to smile?",
   },
   {
     image: GalleryImage16,
-    alt: "Description",
+    alt: "Sunkissed",
   },
   {
     image: GalleryImage17,
-    alt: "Description",
+    alt: "At Karama Primary School for Help Labs ",
   },
   {
     image: GalleryImage18,
-    alt: "Description",
+    alt: "The Team With Karama Primary School Staff",
   },
 ];
 
