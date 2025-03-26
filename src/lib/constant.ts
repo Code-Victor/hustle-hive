@@ -1,3 +1,12 @@
+import Product1 from "@/assets/product/2.png";
+import Product2 from "@/assets/product/3.png";
+import Product3 from "@/assets/product/4.png";
+import Product4 from "@/assets/product/5.png";
+import Product5 from "@/assets/product/6.png";
+import Product6 from "@/assets/product/7.png";
+import Product7 from "@/assets/product/8.png";
+import Product8 from "@/assets/product/9.png";
+
 export const challenges = [
   {
     title: "Challenge 1",
@@ -41,5 +50,72 @@ export const challenges = [
       "This website showcases all our processes in undergoing the six (6) challenges. It features our problem statement, mission statement, and our solution. It also features each member of the team and our collaborative approach to problem solving.",
     video: "https://youtu.be/Ev4dwMijHpE?si=3A52WQ13hzWpCUTU",
     isSpecial: true,
+  },
+];
+
+export const products = [
+  {
+    name: "Sweet Potato Crackers",
+    description:
+      "Our Sweet Potato Crackers are not only delicious but also packed with essential nutrients, making them a guilt-free indulgence that will keep you satisfied throughout your day.",
+    price: "2500 RWF",
+    image: Product1,
+    intro: "Indulge in the wholesome goodness of our",
+  },
+  {
+    name: "Cheese and Onion Puffs",
+    description:
+      "Tangy and satisfying, these puffs are a flavor explosion combining the savory tang of cheese with the subtle sweetness of onion for a taste sensation that will tantalize your taste buds.",
+    price: "2500 RWF",
+    image: Product2,
+    intro: "Puff up your day with our",
+  },
+  {
+    name: "Cinnamon Flavored Apple Bites",
+    description:
+      "A delightful snack inspired by the flavors of autumn. These soft and chewy bites are infused with sun-ripened Rwandan apples, delicately spiced with cinnamon for a touch of sweetness and warmth.",
+    price: "2500 RWF",
+    image: Product3,
+    intro: "Experience the comforting warmth of our",
+  },
+  {
+    name: "Spicy Beef Jerky",
+    description:
+      "For those who crave a bold! Premium beef, marinated in our secret spice blend, then slow-dried to create a chewy, intensely flavorful jerky. High in protein and low in fat, it's the perfect snack for on-the-go.",
+    price: "3000 RWF",
+    image: Product4,
+    intro: "Be a bold snack, with our",
+  },
+  {
+    name: "Crispy Taro Chips",
+    description:
+      "Discover this truly sweet, quite tasty of umukeke (taro), a beloved Rwandan staple, transformed into perfectly thin, crispy chips.",
+    price: "2500 RWF",
+    image: Product5,
+    intro: "Indulge in the irresistible crunch of our",
+  },
+  {
+    name: "Roasted Chickpea Snacks",
+    description:
+      "High in protein and fiber, these roasted chickpeas, a versatile Rwandan crop, are a healthy and satisfying snack.",
+    price: "2500 RWF",
+    image: Product6,
+    intro: "Discover the crunchy goodness of our",
+  },
+  {
+    name: "Honey Roasted Fruit & Nut Clusters",
+    description:
+      "These clusters are a harmonious blend of crunchy nuts, chewy dried fruits, and a drizzle of golden Rwandan honey, creating a perfect balance of sweet and savory.",
+    price: "2500 RWF",
+    image: Product7,
+    intro: "Try our",
+  },
+  {
+    name: "Chewy Strawberry Chocolate Cookies",
+    description:
+      "A delightful fusion of Rwandan-grown strawberries and rich chocolate. Soft, chewy cookies packed with real fruit pieces and decadent chocolate chunks.",
+    price: "3000 RWF",
+    image: Product8,
+    intro: "Try our chewy",
   },
 ];
