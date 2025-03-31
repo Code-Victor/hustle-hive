@@ -100,7 +100,11 @@ const TeamCarousel = () => {
                     <h3 className="font-medium text-lg">{member.name}</h3>
                     <p className="text-gray-500 text-sm">{member.role}</p>
                     <div className="flex justify-center mt-3 space-x-2">
-                      <a href="#" className="text-gray-400 hover:text-gray-600">
+                      <a
+                        href={member.socialLinks.instagram}
+                        target="_blank"
+                        className="text-gray-400 hover:text-gray-600"
+                      >
                         <span className="sr-only">Instagram</span>
                         <Instagram
                           size={16}
@@ -108,10 +112,16 @@ const TeamCarousel = () => {
                           color="#99a1af"
                         />
                       </a>
-                      <a href="#" className="text-gray-400 hover:text-gray-600">
-                        <span className="sr-only">LinkedIn</span>
-                        <Linkedin size={16} color="#99a1af" />
-                      </a>
+                      {member.socialLinks.linkedin && (
+                        <a
+                          href={member.socialLinks.linkedin}
+                          target="_blank"
+                          className="text-gray-400 hover:text-gray-600"
+                        >
+                          <span className="sr-only">LinkedIn</span>
+                          <Linkedin size={16} color="#99a1af" />
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>
