@@ -116,8 +116,8 @@ export const teamMembers: TeamMember[] = [
     name: "Samantha Tchwenko",
     role: "Team Lead",
     socialLinks: {
-      instagram: "https://www.instagram.com/samantha_tchwenko/",
-      linkedin: "",
+      instagram: "https://www.instagram.com/stchwenks",
+      linkedin: "http://linkedin.com/in/samantha-tchwenko-027322314",
     },
   },
   {
@@ -125,8 +125,8 @@ export const teamMembers: TeamMember[] = [
     name: "Dominion Yusuf",
     role: "Product Designer",
     socialLinks: {
-      instagram: "https://www.instagram.com/samantha_tchwenko/",
-      linkedin: "",
+      instagram: "https://www.linkedin.com/in/yusufdominion",
+      linkedin: "https://www.instagram.com/dominion_yusuf_",
     },
   },
   {
@@ -134,7 +134,7 @@ export const teamMembers: TeamMember[] = [
     name: "Manuelle Ackun",
     role: "Visual/Content Creator",
     socialLinks: {
-      instagram: "https://www.instagram.com/samantha_tchwenko/",
+      instagram: "https://www.instagram.com/bxbyy.aseye",
       linkedin: "",
     },
   },
@@ -143,8 +143,8 @@ export const teamMembers: TeamMember[] = [
     name: "Menes Adisso",
     role: "Researcher",
     socialLinks: {
-      instagram: "https://www.instagram.com/samantha_tchwenko/",
-      linkedin: "",
+      instagram: "https://www.instagram.com/menes.ads",
+      linkedin: "https://www.linkedin.com/in/m%C3%A9n%C3%A8s-adisso-b4581b25b",
     },
   },
   {
@@ -152,8 +152,8 @@ export const teamMembers: TeamMember[] = [
     name: "Grace",
     role: "Team Advisor",
     socialLinks: {
-      instagram: "https://www.instagram.com/samantha_tchwenko/",
-      linkedin: "",
+      instagram: "https://www.instagram.com/fynella_9",
+      linkedin: "https://www.linkedin.com/in/grace-sentamu-134665358",
     },
   },
   {
@@ -161,8 +161,8 @@ export const teamMembers: TeamMember[] = [
     name: "Victor Idowu",
     role: "Researcher II",
     socialLinks: {
-      instagram: "https://www.instagram.com/samantha_tchwenko/",
-      linkedin: "",
+      instagram: "https://www.instagram.com/vikkycoke_",
+      linkedin: "https://www.linkedin.com/in/victoridowu001",
     },
   },
 ];
