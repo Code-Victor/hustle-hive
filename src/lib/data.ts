@@ -125,8 +125,8 @@ export const teamMembers: TeamMember[] = [
     name: "Dominion Yusuf",
     role: "Product Designer",
     socialLinks: {
-      instagram: "https://www.linkedin.com/in/yusufdominion",
-      linkedin: "https://www.instagram.com/dominion_yusuf_",
+      instagram: "https://www.instagram.com/dominion_yusuf_",
+      linkedin: "https://www.linkedin.com/in/yusufdominion",
     },
   },
   {
