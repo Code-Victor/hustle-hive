@@ -108,7 +108,7 @@ export const products = [
       "These clusters are a harmonious blend of crunchy nuts, chewy dried fruits, and a drizzle of golden Rwandan honey, creating a symphony of textures and tastes.",
     price: "2500 RWF",
     image: Product7,
-    intro: "Try our",
+    intro: "Try out our",
   },
   {
     name: "Chewy Strawberry Chocolate Cookies",
