@@ -139,7 +139,12 @@ const ProductCarousel = () => {
     {
       loop: true,
     },
-    [WheelGesturesPlugin(), Autoplay()]
+    [
+      WheelGesturesPlugin(),
+      Autoplay({
+        delay: 2000,
+      }),
+    ]
   );
   const tweenFactor = useRef(0);
   const tweenNodes = useRef<HTMLElement[]>([]);
