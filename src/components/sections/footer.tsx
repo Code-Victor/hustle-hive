@@ -1,4 +1,5 @@
 import Logo from "@/assets/logo.svg";
+import { Link } from "@tanstack/react-router";
 import { Call, Instagram, Location, Youtube } from "iconsax-react";
 
 export function Footer() {
@@ -17,13 +18,21 @@ export function Footer() {
               agriculture.
             </p>
             <div className="flex space-x-3">
-              <a href="#" className="text-white hover:text-gray-300">
+              <a
+                href="https://www.instagram.com/hustlehive_alu/"
+                target="_blank"
+                className="text-white hover:text-gray-300"
+              >
                 <div className="w-6 h-6 border bg-white text-black rounded-sm  flex items-center justify-center">
                   <span className="sr-only">Instagram</span>
                   <Instagram size={16} variant="Outline" color="black" />
                 </div>
               </a>
-              <a href="#" className="text-white hover:text-gray-300">
+              <a
+                target="_blank"
+                href="https://www.youtube.com/@HustleHive_ALU"
+                className="text-white hover:text-gray-300"
+              >
                 <div className="w-6 h-6 border bg-white text-black rounded-sm  flex items-center justify-center">
                   <span className="sr-only">Youtube</span>
                   <Youtube size={16} variant="Outline" color="black" />
@@ -37,19 +46,19 @@ export function Footer() {
             <h3 className="text-sm font-medium mb-4">Quick Links</h3>
             <ul className="space-y-2 text-sm text-gray-300">
               <li>
-                <a href="#" className="hover:text-white">
+                <Link to="/" className="hover:text-white">
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-white">
+                <Link to="/e-labs-challenges" className="hover:text-white">
                   E-Labs
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-white">
-                  The Team
-                </a>
+                <Link to="/gallery" className="hover:text-white">
+                  Gallery
+                </Link>
               </li>
             </ul>
           </div>
@@ -59,9 +68,9 @@ export function Footer() {
             <h3 className="text-sm font-medium mb-4">Project</h3>
             <ul className="space-y-2 text-sm text-gray-300">
               <li>
-                <a href="#" className="hover:text-white">
+                <Link to="/product" className="hover:text-white">
                   BeSnacks
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -72,11 +81,13 @@ export function Footer() {
             <ul className="space-y-2 text-sm text-gray-300">
               <li className="flex items-center gap-2">
                 <Call size={16} variant="Bold" color="white" />
-                <span>250795613513</span>
+                <a href="tel:+250795613513">+250795613513</a>
               </li>
               <li className="flex items-center gap-2">
-                <Location size={16} variant="Bold" color="white" />
-                <span>Type Request</span>
+                <Location size={18} variant="Bold" color="white" />
+                <span>
+                  Bumbogo, Kigali Innovation City, Next to Azam, Kigali, Rwanda
+                </span>
               </li>
             </ul>
           </div>

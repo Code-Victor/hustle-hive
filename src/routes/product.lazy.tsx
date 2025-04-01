@@ -11,7 +11,7 @@ function RouteComponent() {
   return (
     <>
       {/* Hero Section */}
-      <div className="text-center py-12 px-4">
+      <div className="text-center pt-32 pb-12 px-4">
         <h1 className="text-3xl md:text-4xl font-bold">
           Be Snacks: Prototype Showcase - <br />
           Do You Want to Be a Snack?

@@ -7,6 +7,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import { teamMembers } from "@/lib/data";
 import { Instagram } from "iconsax-react";
 import { Linkedin } from "lucide-react";
+import { products } from "@/lib/constant";
 
 const TWEEN_FACTOR_BASE = 0.4;
 
@@ -79,7 +80,7 @@ const TeamCarousel = () => {
   }, [emblaApi, tweenOpacity]);
 
   return (
-    <div className="relative max-w-[54rem] mx-auto">
+    <div className="relative max-w-[52rem] mx-auto">
       <div className="pointer-events-none absolute inset-y-0 left-0 w-8 md:w-12 bg-gradient-to-r from-[#f9fafb] to-transparent z-10"></div>
       <div className="pointer-events-none absolute inset-y-0 right-0 w-8 md:w-12 bg-gradient-to-l from-[#f9fafb] to-transparent z-10"></div>
       <div className="embla">
@@ -133,5 +134,102 @@ const TeamCarousel = () => {
     </div>
   );
 };
+const ProductCarousel = () => {
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    {
+      loop: true,
+    },
+    [WheelGesturesPlugin(), Autoplay()]
+  );
+  const tweenFactor = useRef(0);
+  const tweenNodes = useRef<HTMLElement[]>([]);
 
-export { TeamCarousel };
+  const setTweenNodes = useCallback((emblaApi: EmblaCarouselType): void => {
+    tweenNodes.current = emblaApi.slideNodes().map((slideNode) => {
+      return slideNode.querySelector(".embla__slide__image") as HTMLElement;
+    });
+  }, []);
+
+  const setTweenFactor = useCallback((emblaApi: EmblaCarouselType) => {
+    tweenFactor.current = TWEEN_FACTOR_BASE * emblaApi.scrollSnapList().length;
+  }, []);
+
+  const tweenScale = useCallback(
+    (emblaApi: EmblaCarouselType, eventName?: EmblaEventType) => {
+      const engine = emblaApi.internalEngine();
+      const scrollProgress = emblaApi.scrollProgress();
+      const slidesInView = emblaApi.slidesInView();
+      const isScrollEvent = eventName === "scroll";
+
+      emblaApi.scrollSnapList().forEach((scrollSnap, snapIndex) => {
+        let diffToTarget = scrollSnap - scrollProgress;
+        const slidesInSnap = engine.slideRegistry[snapIndex];
+
+        slidesInSnap.forEach((slideIndex) => {
+          if (isScrollEvent && !slidesInView.includes(slideIndex)) return;
+
+          if (engine.options.loop) {
+            engine.slideLooper.loopPoints.forEach((loopItem) => {
+              const target = loopItem.target();
+
+              if (slideIndex === loopItem.index && target !== 0) {
+                const sign = Math.sign(target);
+
+                if (sign === -1) {
+                  diffToTarget = scrollSnap - (1 + scrollProgress);
+                }
+                if (sign === 1) {
+                  diffToTarget = scrollSnap + (1 - scrollProgress);
+                }
+              }
+            });
+          }
+
+          const tweenValue = 1 - Math.abs(diffToTarget * tweenFactor.current);
+          const scale = numberWithinRange(tweenValue, 0, 1).toString();
+          const tweenNode = tweenNodes.current[slideIndex];
+          tweenNode.style.transform = `scale(${scale})`;
+        });
+      });
+    },
+    []
+  );
+
+  useEffect(() => {
+    if (!emblaApi) return;
+
+    setTweenNodes(emblaApi);
+    setTweenFactor(emblaApi);
+    tweenScale(emblaApi);
+
+    emblaApi
+      .on("reInit", setTweenNodes)
+      .on("reInit", setTweenFactor)
+      .on("reInit", tweenScale)
+      .on("scroll", tweenScale)
+      .on("slideFocus", tweenScale);
+  }, [emblaApi, tweenScale]);
+
+  return (
+    <div className="embla fade-mask">
+      <div className="embla__viewport" ref={emblaRef}>
+        <div className="embla__container">
+          {products.map((product, index) => (
+            <div className="embla__slide" key={index}>
+              <img
+                loading="eager"
+                src={product.image || "/placeholder.svg"}
+                alt={product.name}
+                width={300}
+                height={300}
+                className="object-contain embla__slide__image"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export { TeamCarousel, ProductCarousel };

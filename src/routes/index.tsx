@@ -1,11 +1,11 @@
-import LandingPage from "@/assets/landing-page.png";
 import { createFileRoute } from "@tanstack/react-router";
 import { Magicpen, People, Setting } from "iconsax-react";
 import { motion } from "motion/react";
 import { useState } from "react";
 import Problem from "@/assets/problem.png";
 import Mission from "@/assets/mission.png";
-import { TeamCarousel } from "@/components/carousel";
+import { ProductCarousel, TeamCarousel } from "@/components/carousel";
+import bg from "@/assets/background.svg";
 
 export const Route = createFileRoute("/")({
   component: RouteComponent,
@@ -23,27 +23,26 @@ function RouteComponent() {
 
 export function Hero() {
   return (
-    <section className="container mx-auto px-4 py-16 flex flex-col items-center">
-      <div className="text-center max-w-3xl mx-auto mb-10">
-        <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-          Building Sustainable Employment for Future Generations.
-        </h1>
-        <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-          Hustle-Hive solves the problem of job creation in Rwanda by maximizing
-          agricultural produce thereby creating a brighter future for the
-          Rwandan Youth
-        </p>
-      </div>
-
-      <div className="w-full max-w-4xl rounded-3xl overflow-hidden">
-        <img
-          loading="eager"
-          src={LandingPage}
-          alt="Agricultural landscape with wind turbines at sunset"
-          width={1000}
-          height={500}
-          className="w-full h-auto"
-        />
+    <section className="relative pt-20">
+      <img
+        alt="background image"
+        src={bg}
+        width={1440}
+        height={1143}
+        className="absolute inset-0 object-cover -z-[1] w-full"
+      />
+      <div className="container mx-auto px-4 py-16 flex flex-col items-center">
+        <div className="text-center max-w-3xl mx-auto mb-10">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+            <span className="text-[#D1802F]">Healthy & Delicious</span> Snacks
+            At Your Reach <span className="text-[#D1802F]">24/7</span>
+          </h1>
+          <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+            Unwrap the flavors of Rwanda through our healthy range of snacks
+            made from freshly harvested crops, straight from the source.
+          </p>
+        </div>
+        <ProductCarousel />
       </div>
     </section>
   );

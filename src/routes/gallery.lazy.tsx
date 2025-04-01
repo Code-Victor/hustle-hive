@@ -8,7 +8,7 @@ export const Route = createLazyFileRoute("/gallery")({
 
 function RouteComponent() {
   return (
-    <section className="container mx-auto px-4 py-16 text-center">
+    <section className="container mx-auto px-4 pt-36 pb-16 text-center">
       <h1 className="text-5xl font-bold mb-6">Gallery</h1>
       <div className="max-w-2xl mx-auto">
         <p className="text-xl text-gray-700">

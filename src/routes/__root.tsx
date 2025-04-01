@@ -9,12 +9,10 @@ export const Route = createRootRoute({
 
 function RootComponent() {
   return (
-    <React.Fragment>
-      <div className="font-urbanist min-h-screen">
-        <Navbar />
-        <Outlet />
-        <Footer />
-      </div>
-    </React.Fragment>
+    <div className="font-urbanist min-h-screen">
+      <Navbar />
+      <Outlet />
+      <Footer />
+    </div>
   );
 }

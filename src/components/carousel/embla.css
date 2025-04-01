@@ -3,7 +3,7 @@
   margin: auto;
   --slide-height: 19rem;
   --slide-spacing: 1rem;
-  --slide-size: 260px;
+  --slide-size: 270px;
 }
 .embla__viewport {
   overflow: hidden;
@@ -26,4 +26,15 @@
   height: var(--slide-height);
   width: 100%;
   object-fit: cover;
+}
+
+.fade-mask {
+  -webkit-mask: linear-gradient(
+    90deg,
+    transparent,
+    white 20%,
+    white 80%,
+    transparent
+  );
+  mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
 }

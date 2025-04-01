@@ -10,7 +10,7 @@ export const Route = createLazyFileRoute("/e-labs-challenges")({
 function RouteComponent() {
   return (
     <>
-      <section className="container mx-auto px-4 py-16 text-center">
+      <section className="container mx-auto px-4 pt-36 pb-12 text-center">
         <h1 className="text-5xl font-bold mb-6">Challenges We Tackled</h1>
         <div className="max-w-4xl mx-auto">
           <p className="text-xl text-gray-700">
@@ -27,7 +27,14 @@ function RouteComponent() {
             View a detailed documentation about our roadmap and processes here
             &gt;&gt;&gt;
           </p>
-          <Button className="bg-gray-900 hover:bg-gray-800">Our Journey</Button>
+          <Button className="bg-gray-900 hover:bg-gray-800" asChild>
+            <a
+              href="https://docs.google.com/document/d/1LzF9Ss6HoPFJh_2onUdENsd8OnNeJ1zYp8UIw20IaT4/edit?usp=sharing"
+              target="_blank"
+            >
+              Our Journey
+            </a>
+          </Button>
         </div>
       </div>
     </>
